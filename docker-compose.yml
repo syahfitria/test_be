@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  auth:
+    build: ./auth/
+    image: auth:dev
+    container_name: auth-service
+    volumes:
+      - ./auth/:/usr/src/app
+    ports:
+      - 8000:8000
+  fetch:
+    build: ./fetch/
+    image: fetch:dev
+    container_name: fetch-service
+    volumes:
+      - ./fetch/:/usr/src/app
+    ports:
+      - 9999:3000
